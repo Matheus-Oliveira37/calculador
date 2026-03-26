@@ -1,27 +1,9 @@
 from time import sleep
 from rich import print
 from rich.panel import Panel
+import pacotes.funcoes
 
-#função para criar os menus
-def menu(msg):
-    msg = Panel(
-        "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
-        "[ 1 ] FORRO\n"
-        "[ 2 ] LAJE\n"
-        "[ 3 ] INFORMAÇÕES\n"
-        "[ 4 ] SAIR[/]",
-        title="[bold magenta]Menu[/]", border_style="bold magenta", width=50
-        )
-    return msg
 
-def EscolhaForro(msg):
-    msg = Panel(
-        "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
-        "[ 1 ] FORRO CALCULADO POR M²\n"
-        "[ 2 ] FORRO CALCULADO POR BARRA[/]",
-        title="[bold magenta]FORRO[/]", border_style="bold magenta", width=50
-        )
-    return msg
 
 #programa principal
 titulo = 'BEM VINDO AO CALCULATOR 2000'
@@ -35,21 +17,17 @@ sleep(1)
 escolha = 0
 while escolha != 4:
 
-    print(menu('Menu'))
+    print(pacotes.funcoes.menu('Menu'))
 
     escolha = int(input())
     if escolha == 1:
         print("[bold blue]VOCÊ ESCOLHEU FORRO[/]")
-        print(EscolhaForro('FORRO'))
+        print(pacotes.funcoes.EscolhaForro('FORRO'))
         escolha2 = int(input(''))
         if escolha2 == 1:
             tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
-            mbarra = tambarra * 0.2
             tamparede = float(input('QUAL A LARGURA: '))
-            qbarra = (tamparede / 0.2).__ceil__()
-            total = qbarra * mbarra
-            sleep(1.2)
-            print(f'SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total:.2f}M²[/]')
+            print(pacotes.funcoes.CalcularForrom(tambarra, tamparede))
             sleep(1.2)
             resposta = input('[bold red]QUER DIVIDIR AS BARRAS? S/N:[/] ').upper()
             if resposta == 'S':
