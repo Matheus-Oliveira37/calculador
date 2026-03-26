@@ -1,50 +1,46 @@
 from time import sleep
-from colorama import init, Fore, Style
+from rich import print
+from rich.panel import Panel
 
+#função para criar os menus
+def menu(msg):
+    msg = Panel(
+        "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] FORRO\n"
+        "[ 2 ] LAJE\n"
+        "[ 3 ] INFORMAÇÕES\n"
+        "[ 4 ] SAIR[/]",
+        title="[bold magenta]Menu[/]", border_style="bold magenta", width=50
+        )
+    return msg
 
-init()
+def EscolhaForro(msg):
+    msg = Panel(
+        "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] FORRO CALCULADO POR M²\n"
+        "[ 2 ] FORRO CALCULADO POR BARRA[/]",
+        title="[bold magenta]FORRO[/]", border_style="bold magenta", width=50
+        )
+    return msg
 
-
-estilo = {
-    'negrito' : Style.BRIGHT,
-    'reset' : Style.RESET_ALL,
-}
-
-cores = {
-    'verde' : Fore.GREEN,
-    'azul' : Fore.BLUE,
-    'amarelo' : Fore.YELLOW,
-    'roxo' : Fore.MAGENTA,
-    'vermelho' : Fore.RED,
-    'limpa' : Fore.RESET,
-}
-
-
+#programa principal
 titulo = 'BEM VINDO AO CALCULATOR 2000'
-print(f'{estilo['negrito']}{cores['vermelho']}CRIADO POR MATHEUS O. AMORIM       VERSÃO 2.1{cores['limpa']}{estilo['reset']}')
+print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 2.1[/]')
 print('-' * 50)
-print(f'{estilo['negrito']}{cores['verde']}{titulo.center(50)}{cores['limpa']}{estilo['reset']}'.center(40))
+print(f'[bold green]{titulo.center(50)}[/]')
 print('-' * 50)
 sleep(1)
 
-
+#escolha uma opção entre forro, laje, informações ou sair do programa
 escolha = 0
-
 while escolha != 4:
-    print(f'{estilo['negrito']}{cores['roxo']}ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO]:{cores['limpa']}{estilo['reset']} ')
-    print(f'''{estilo['negrito']}{cores['roxo']}
- [ 1 ] FORRO
- [ 2 ] LAJE
- [ 3 ] INFORMAÇÕES
- [ 4 ] SAIR{cores['limpa']}{estilo['reset']}''')
 
+    print(menu('Menu'))
 
     escolha = int(input())
     if escolha == 1:
-        print(f'{estilo['negrito']}{cores['azul']}VOCÊ ESCOLHEU FORRO{cores['limpa']}{estilo['reset']}')
-        print(f'''{estilo['negrito']}{cores['roxo']}
-[ 1 ] FORRO CALCULADO POR M²
-[ 2 ] FORRO CALCULADO POR BARRA{cores['limpa']}{estilo['reset']}''')
+        print("[bold blue]VOCÊ ESCOLHEU FORRO[/]")
+        print(EscolhaForro('FORRO'))
         escolha2 = int(input(''))
         if escolha2 == 1:
             tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
@@ -53,26 +49,26 @@ while escolha != 4:
             qbarra = (tamparede / 0.2).__ceil__()
             total = qbarra * mbarra
             sleep(1.2)
-            print(f'SERIAM {cores['verde']}{qbarra}{cores['limpa']} BARRAS DANDO {cores['verde']}{total:.2f}M²{cores['limpa']}')
+            print(f'SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total:.2f}M²[/]')
             sleep(1.2)
-            resposta = input(f'{estilo['negrito']}{cores['amarelo']}QUER DIVIDIR AS BARRAS? S/N:{cores['limpa']}{estilo['reset']} ').upper()
+            resposta = input('[bold red]QUER DIVIDIR AS BARRAS? S/N:[/] ').upper()
             if resposta == 'S':
-                dividir = float(input(f'{estilo['negrito']}{cores['amarelo']}QUER DIVIDIR POR QUANTO:{cores['limpa']} '))
+                dividir = float(input("[yellow]QUER DIVIDIR POR QUANTO:[/]"))
                 divisao = qbarra / dividir
                 totaldividio = total / dividir
                 sleep(1.2)
-                print(f'SERIAM {cores['verde']}{divisao:.2f}{cores['limpa']} BARRAS DANDO {cores['verde']}{totaldividio:.2f}M²{cores['limpa']}')
+                print(f"SERIAM [green]{divisao:.2f}[/] BARRAS DANDO [/]{totaldividio:.2f}M²[/]")
                 sleep(1.2)
             else:
                 print('')
         elif escolha2 == 2:
-            barra = float(input('TAMANHO DA BARRA: '))
-            quantidade = int(input('QUANTIDADE DE BARRAS: '))
+            barra = float(input("TAMANHO DA BARRA: "))
+            quantidade = int(input("QUANTIDADE DE BARRAS: "))
             soma = (barra * 0.2) * quantidade
             sleep(1.2)
-            print(f'SERIAM {cores['verde']}{quantidade}{cores['limpa']} BARRAS DANDO {cores['verde']}{soma:.2f}M²{cores['limpa']}')
+            print(f"SERIAM [green]{quantidade}[/] BARRAS DANDO [green]{soma:.2f}M²[/]")
             sleep(1.2)
-        escolha3 = input(f'{estilo['negrito']}{cores['amarelo']}QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:{cores['limpa']}{estilo['reset']} ').upper()
+        escolha3 = input(f"[bold yellow]]QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:[/]").upper()
         if escolha3 == 'S':
             parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
             parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
@@ -80,12 +76,12 @@ while escolha != 4:
             parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
             soma = ((parede1 + parede2 + parede3 + parede4) / 6).__ceil__()
             sleep(1.2)
-            print(f'SERIAM {cores['verde']}{soma}{cores['limpa']} BARRAS')
+            print(f"SERIAM [green]{soma}[/]] BARRAS")
             sleep(1.2)
         elif escolha3 == 'N':
             print('')
             sleep(1)
-        print(f'{estilo['negrito']}{cores['amarelo']}CALCULO CONCLUIDO{cores['limpa']}{estilo['reset']}')
+        print(f"[bold yellow]CALCULO CONCLUIDO[/]")
         sleep(3)
 
     elif escolha == 2:
