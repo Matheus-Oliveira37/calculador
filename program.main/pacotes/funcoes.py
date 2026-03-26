@@ -1,4 +1,6 @@
 from rich.panel import Panel
+from rich import print
+from time import sleep
 
 #funções para os menus
 def menu(msg):
@@ -25,4 +27,55 @@ def CalcularForrom(barra, parede):
     mbarra = barra * 0.2
     qbarra = (parede / 0.2).__ceil__()
     total = qbarra * mbarra
-    return f"SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total}M²[/]"
+    sleep(1.2)
+    print(f"SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total:.2f}M²[/]")
+    sleep(1.2)
+    print("[bold yellow]QUER DIVIDIR AS BARRAS? S/N:[/] ")
+    resposta = input().upper()
+    if resposta == 'S':
+        print(f'[bold yellow]QUER DIVIDIR POR QUANTO: [/]')
+        dividir = float(input())
+        divisao = qbarra / dividir
+        totaldividio = total / dividir
+        sleep(1.2)
+        print(f'SERIAM [green]{divisao:.2f}[/] BARRAS DANDO [green]{totaldividio:.2f}M²[/]')
+        sleep(1.2)
+    print(f"[bold yellow]QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:[/]")
+    escolha3 = input().upper()
+    if escolha3 == 'S':
+            parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
+            parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
+            parede3 = float(input('TAMANHO DA TERCEIRA PAREDE: '))
+            parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
+            soma = ((parede1 + parede2 + parede3 + parede4) / 6).__ceil__()
+            sleep(1.2)
+            print(f"SERIAM [green]{soma}[/] BARRAS")
+            sleep(1.2)
+    elif escolha3 == 'N':
+            sleep(1)
+    else:
+        print('')
+    
+def CalcularForroBarra(barra, parede):
+    mbarra = barra * 0.2
+    qbarra = (parede / 0.2).__ceil__()
+    total = qbarra * mbarra
+    sleep(1.2)
+    print(f"SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total:.2f}M²[/]")
+    sleep(1.2)
+    print(f"[bold yellow]QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:[/]")
+    escolha3 = input().upper()
+    if escolha3 == 'S':
+            parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
+            parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
+            parede3 = float(input('TAMANHO DA TERCEIRA PAREDE: '))
+            parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
+            soma = ((parede1 + parede2 + parede3 + parede4) / 6).__ceil__()
+            sleep(1.2)
+            print(f"SERIAM [green]{soma}[/] BARRAS")
+            sleep(1.2)
+    elif escolha3 == 'N':
+            sleep(1)
+    else:
+        print('[bold red]OPÇÃO INVÁLIDA[/]')
+

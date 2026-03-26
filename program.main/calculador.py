@@ -5,10 +5,9 @@ import pacotes.funcoes
 
 
 
-#programa principal
-
+#titulo do programa e mensagem de boas vindas
 print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 3.1[/]')
-panel = Panel("BEM VINDO AO CALCULATOR 2000", title="[bold green]CALCULATOR 2000[/]", border_style="bold green", width=50)
+panel = Panel("[bold white on green]        BEM VINDO AO CALCULATOR 2000         ", title="[bold green]CALCULATOR 2000[/]", border_style="bold green", width=50)
 print(panel)
 
 sleep(1)
@@ -19,46 +18,27 @@ while escolha != 4:
 
     print(pacotes.funcoes.menu('Menu'))
 
+#escolha do menu
     escolha = int(input())
+
+#escolha nº1: Forro pvc
     if escolha == 1:
         print("[bold blue]VOCÊ ESCOLHEU FORRO[/]")
-        print(pacotes.funcoes.EscolhaForro('FORRO'))
+        print(pacotes.funcoes.EscolhaForro('FORRO')) 
         escolha2 = int(input(''))
         if escolha2 == 1:
             tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
             tamparede = float(input('QUAL A LARGURA: '))
-            print(pacotes.funcoes.CalcularForrom(tambarra, tamparede))
+            print(pacotes.funcoes.CalcularForrom(tambarra, tamparede)) #função para calcular o forro por m²
             sleep(1.2)
-            resposta = input('[bold red]QUER DIVIDIR AS BARRAS? S/N:[/] ').upper()
-            if resposta == 'S':
-                dividir = float(input("[yellow]QUER DIVIDIR POR QUANTO:[/]"))
-                divisao = qbarra / dividir
-                totaldividio = total / dividir
-                sleep(1.2)
-                print(f"SERIAM [green]{divisao:.2f}[/] BARRAS DANDO [/]{totaldividio:.2f}M²[/]")
-                sleep(1.2)
-            else:
-                print('')
+
         elif escolha2 == 2:
-            barra = float(input("TAMANHO DA BARRA: "))
-            quantidade = int(input("QUANTIDADE DE BARRAS: "))
-            soma = (barra * 0.2) * quantidade
+            tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
+            tamparede = float(input('QUAL A LARGURA: '))
             sleep(1.2)
-            print(f"SERIAM [green]{quantidade}[/] BARRAS DANDO [green]{soma:.2f}M²[/]")
+            print(pacotes.funcoes.CalcularForroBarra(tambarra, tamparede)) #função para calcular o forro por barra
             sleep(1.2)
-        escolha3 = input(f"[bold yellow]]QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:[/]").upper()
-        if escolha3 == 'S':
-            parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
-            parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
-            parede3 = float(input('TAMANHO DA TERCEIRA PAREDE: '))
-            parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
-            soma = ((parede1 + parede2 + parede3 + parede4) / 6).__ceil__()
-            sleep(1.2)
-            print(f"SERIAM [green]{soma}[/]] BARRAS")
-            sleep(1.2)
-        elif escolha3 == 'N':
-            print('')
-            sleep(1)
+            
         print(f"[bold yellow]CALCULO CONCLUIDO[/]")
         sleep(3)
 
