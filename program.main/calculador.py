@@ -6,11 +6,11 @@ import pacotes.funcoes
 
 
 #programa principal
-titulo = 'BEM VINDO AO CALCULATOR 2000'
-print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 2.1[/]')
-print('-' * 50)
-print(f'[bold green]{titulo.center(50)}[/]')
-print('-' * 50)
+
+print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 3.1[/]')
+panel = Panel("BEM VINDO AO CALCULATOR 2000", title="[bold green]CALCULATOR 2000[/]", border_style="bold green", width=50)
+print(panel)
+
 sleep(1)
 
 #escolha uma opção entre forro, laje, informações ou sair do programa
