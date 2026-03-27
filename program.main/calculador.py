@@ -30,7 +30,13 @@ while escolha != 4:
                 while True:
                     try:
                         tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
+                        if tambarra == 0:
+                            print('[bold red]ERRO: O TAMANHO DA BARRA NÃO PODE SER ZERO[/]')
+                            continue
                         tamparede = float(input('QUAL A LARGURA: '))
+                        if tamparade == 0:
+                            print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
+                            continue
                         sleep(1.2)
                     except (TypeError, ValueError):
                         print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
