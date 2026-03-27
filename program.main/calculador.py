@@ -26,27 +26,57 @@ while escolha != 4:
         print("[bold blue]VOCÊ ESCOLHEU FORRO[/]")
         print(pacotes.funcoes.EscolhaForro('FORRO')) 
         escolha2 = int(input(''))
-        if escolha2 == 1:
-            tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
-            tamparede = float(input('QUAL A LARGURA: '))
-            print(pacotes.funcoes.CalcularForrom(tambarra, tamparede)) #função para calcular o forro por m²
-            sleep(1.2)
+        if escolha2 == 1: #forro calculado por m²
+            while True:
+                try:
+                    tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
+                    tamparede = float(input('QUAL A LARGURA: '))
+                    sleep(1.2)
+                except (TypeError, ValueError):
+                    print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                
+                except ZeroDivisionError:
+                    print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
+                
+                else:
+                    print(pacotes.funcoes.CalcularForrom(tambarra, tamparede)) #função para calcular o forro por m²
+                    sleep(1.2)
+                    break
 
-        elif escolha2 == 2:
-            tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
-            tamparede = float(input('QUAL A LARGURA: '))
-            sleep(1.2)
-            print(pacotes.funcoes.CalcularForroBarra(tambarra, tamparede)) #função para calcular o forro por barra
-            sleep(1.2)
+        elif escolha2 == 2: #forro calculado por barra
+            while True:
+                try:
+                     tambarra = float(input('QUAL O TAMANHO DA BARRA: '))
+                     if tambarra == 0:
+                        print('[bold red]ERRO: O TAMANHO DA BARRA NÃO PODE SER ZERO[/]')
+                        continue
+                     tamparede = float(input('QUAL A LARGURA: '))
+                     if tamparede == 0:
+                        print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
+                        continue
+                     sleep(1.2)
+                except (TypeError, ValueError):
+                    print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                
+                except ZeroDivisionError:
+                    print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
+                
+                else:
+                     print(pacotes.funcoes.CalcularForrom(tambarra, tamparede)) #função para calcular o forro por barra
+                     sleep(1.2)
+                     break
             
-        print(f"[bold yellow]CALCULO CONCLUIDO[/]")
-        sleep(3)
+        elif escolha == 3:
+            break
+        else:
+            print('[bold red]OPÇÃO INVÁLIDA[/]')
+            sleep(1.2)
+            continue
 
+#escolha nº2: Laje
     elif escolha == 2:
-        print(f'{estilo['negrito']}{cores['azul']}VOCÊ ESCOLHEU LAJE{cores['limpa']}{estilo['reset']}')
-        print(f'''{estilo['negrito']}{cores['roxo']}
-[ 1 ] LAJE CALCULADO POR M²
-[ 2 ] CALCULAR QUANTIDADE DE LAJOTAS{cores['limpa']}{estilo['reset']}''')
+        print(f'[bold cyan]VOCÊ ESCOLHEU LAJE[/]')
+        print(pacotes.funcoes.EscolhaLaje('LAJE'))
         escolha2 = int(input(''))
         if escolha2 == 1:
             largura = float(input('QUAL A LARGURA: '))
