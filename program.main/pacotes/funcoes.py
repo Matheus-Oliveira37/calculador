@@ -3,8 +3,11 @@ from rich import print
 from time import sleep
 import math
 
-#funções para os menus
-def menu(msg):
+
+# funções para os menus
+def menu():
+    """MENU PRINCIPAL DO PROGRAMA COM AS OPÇÕES DE FORRO, LAJE, INFORMAÇÕES E SAIR
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
     msg = Panel(
         "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
         "[ 1 ] FORRO\n"
@@ -14,30 +17,42 @@ def menu(msg):
         title="[bold magenta]Menu[/]",
         border_style="bold magenta",
         width=50)
-        
+
     return msg
 
-def EscolhaForro(msg):
+
+def escolhaforro():
+    """MENU DE OPÇÕES PARA O FORRO, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR POR BARRA E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
     msg = Panel(
         "[blue]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
         "[ 1 ] FORRO CALCULADO POR M²\n"
         "[ 2 ] FORRO CALCULADO POR BARRA\n"
         "[ 3 ] VOLTAR AO MENU[/]",
         title="[bold blue]FORRO[/]", border_style="bold blue", width=50
-        )
+    )
     return msg
 
-def EscolhaLaje(msg):
+
+def escolhalaje():
+    """MENU DE OPÇÕES PARA A LAJE, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR QUANTIDADE DE LAJOTAS E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
     msg = Panel(
         "[cyan]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
         "[ 1 ] LAJE CALCULADO POR M²\n"
         "[ 2 ] CALCULAR QUANTIDADE DE LAJOTAS\n"
         "[ 3 ] VOLTAR AO MENU[/]",
         title="[bold cyan]LAJE[/]", border_style="bold cyan", width=50
-        )
+    )
     return msg
 
-def CalcularForrom(barra, parede):
+
+def calcularforrom2(barra, parede):
+    """FUNÇÃO PARA CALCULAR O FORRO POR M²,
+    RECEBENDO O TAMANHO DA BARRA E O TAMANHO DA PAREDE COMO PARÂMETROS
+    TAMBÉM TENDO A OPÇÃO DE DIVIDIR AS BARRAS E CALCULAR RODA FORRO/MEIA CANA"""
     mbarra = barra * 0.2
     qbarra = math.ceil(parede / 0.2)
     total = qbarra * mbarra
@@ -48,13 +63,13 @@ def CalcularForrom(barra, parede):
         try:
             print("[bold yellow]QUER DIVIDIR AS BARRAS? S/N:[/] ")
             resposta = input().upper()
-            
+
             if resposta == 'S':
                 print('[bold yellow]QUER DIVIDIR POR QUANTO: [/]')
                 dividir = float(input())
                 if dividir == 0:
                     print('[bold red]ERRO: NÃO PODE DIVIDIR POR ZERO[/]')
-                    continue 
+                    continue
                 divisao = qbarra / dividir
                 totaldividio = total / dividir
                 sleep(1.2)
@@ -112,10 +127,14 @@ def CalcularForrom(barra, parede):
             print('[bold red]ERRO: DIGITE UM NÚMERO VÁLIDO[/]')
     print("[bold yellow]CALCULO CONCLUIDO![/]")
     sleep(3)
-    
-def CalcularForroBarra(barra, parede):
+
+
+def calcularforrobarra(barra, parede):
+    """FUNÇÃO PARA CALCULAR O FORRO POR BARRA,
+    RECEBENDO O TAMANHO DA BARRA E O TAMANHO DA PAREDE COMO PARÂMETROS
+    TAMBÉM TENDO A OPÇÃO DE CALCULAR RODA FORRO/MEIA CANA"""
     mbarra = barra * 0.2
-    qbarra = (parede / 0.2).__ceil__()
+    qbarra = math.ceil(parede / 0.2)
     total = qbarra * mbarra
     sleep(1.2)
     print(f"SERIAM [green]{qbarra}[/] BARRAS DANDO [green]{total:.2f}M²[/]")
@@ -123,20 +142,56 @@ def CalcularForroBarra(barra, parede):
     print(f"[bold yellow]QUER CALCULAR RODA FORRO/MEIA CANA TAMBÉM? S/N:[/]")
     escolha3 = input().upper()
     if escolha3 == 'S':
-            parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
-            parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
-            parede3 = float(input('TAMANHO DA TERCEIRA PAREDE: '))
-            parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
-            soma = ((parede1 + parede2 + parede3 + parede4) / 6).__ceil__()
-            sleep(1.2)
-            print(f"SERIAM [green]{soma}[/] BARRAS")
-            sleep(1.2)
+        parede1 = float(input('TAMANHO DA PRIMEIRA PAREDE: '))
+        parede2 = float(input('TAMANHO DA SEGUNDA PAREDE: '))
+        parede3 = float(input('TAMANHO DA TERCEIRA PAREDE: '))
+        parede4 = float(input('TAMANHO DA QUARTA PAREDE: '))
+        soma = math.ceil((parede1 + parede2 + parede3 + parede4) / 6)
+        sleep(1.2)
+        print(f"SERIAM [green]{soma}[/] BARRAS")
+        sleep(1.2)
     elif escolha3 == 'N':
-            sleep(1)
+        sleep(1)
     else:
         print('[bold red]OPÇÃO INVÁLIDA[/]')
     print("[bold yellow]CALCULO CONCLUIDO![/]")
     sleep(3)
 
-print(EscolhaForro('FORRO'))
-print(EscolhaLaje('LAJE'))
+
+def calcularlajem2(largura, tamviga):
+    """FUNÇÃO PARA CALCULAR A LAJE POR M²,
+    RECEBENDO A LARGURA E O TAMANHO DA VIGA COMO PARÂMETROS"""
+    qviga = (largura / 0.42).__ceil__()
+    total = (qviga * tamviga) / 2.38
+    sleep(1.2)
+    print(f'SERIAM [green]{qviga:.2f}[/] VIGAS DANDO [green]{total:.2f}M²[/]')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
+
+
+def calcularlajelajotas(m2):
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE LAJOTAS NECESSÁRIAS PARA COBRIR A LAJE,
+    RECEBENDO A METRAGEM QUADRADA COMO PARÂMETRO"""
+    lajota = m2 * 11.4
+    isopor = m2 * 2.28
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(lajota)}[/] LAJOTAS DE CERAMICA')
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(isopor)}[/] LAJOTAS DE ISOPOR')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
+
+
+def informacoes():
+    msg = Panel(
+        "[cyan]INFORMAÇÕES SOBRE O PROGRAMA: \n"
+        "ESTE PROGRAMA FOI DESENVOLVIDO PARA AUXILIAR NA HORA DE CALCULAR FORROS E LAJES, \n"
+        "OFERECENDO OPÇÕES DE CÁLCULO POR M² OU POR BARRA, ALÉM DE INFORMAÇÕES SOBRE A QUANTIDADE DE LAJOTAS NECESSÁRIAS. \n"
+        "O PROGRAMA É FÁCIL DE USAR E FOI PROJETADO PARA SER ACESSÍVEL A TODOS, INDEPENDENTEMENTE DO NÍVEL DE EXPERIÊNCIA EM CONSTRUÇÃO. \n"
+        "ESPERO QUE ESTE PROGRAMA SEJA ÚTIL PARA VOCÊS![/]",
+        title="[bold white on green]INFORMAÇÕES[/]", border_style="bold green", width=70
+    )
+
+    return msg
