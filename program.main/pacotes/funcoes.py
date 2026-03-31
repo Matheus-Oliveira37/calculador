@@ -12,8 +12,9 @@ def menu():
         "[magenta]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
         "[ 1 ] FORRO\n"
         "[ 2 ] LAJE\n"
-        "[ 3 ] INFORMAÇÕES\n"
-        "[ 4 ] SAIR[/]",
+        "[ 3 ] TIJOLOS\n"
+        "[ 4 ] INFORMAÇÕES\n"
+        "[ 5 ] SAIR[/]",
         title="[bold magenta]Menu[/]",
         border_style="bold magenta",
         width=50)
@@ -45,6 +46,21 @@ def escolhalaje():
         "[ 2 ] CALCULAR QUANTIDADE DE LAJOTAS\n"
         "[ 3 ] VOLTAR AO MENU[/]",
         title="[bold cyan]LAJE[/]", border_style="bold cyan", width=50
+    )
+    return msg
+
+def escolhatijolo():
+    """MENU DE OPÇÕES PARA O TIJOLO, COM AS OPÇÕES DE CALCULAR TIJOLO BAIANO,
+    CALCULAR TIJOLO BAIANINHO, CALCULAR TIJOLO MINEIRÃO, CALCULAR BLOCO E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
+    msg = Panel(
+        "[color(208)]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] CALCULAR TIJOLO BAIANO\n"
+        "[ 2 ] CALCULAR TIJOLO BAIANINHO\n"
+        "[ 3 ] CALCULAR TIJOLO MINEIRÃO\n"
+        "[ 4 ] CALCULAR BLOCO\n"
+        "[ 5 ] VOLTAR AO MENU[/]",
+        title="[bold color(208)]TIJOLO[/]", border_style="bold color(208)", width=50
     )
     return msg
 
@@ -183,6 +199,29 @@ def calcularlajelajotas(m2):
     print(f'[bold yellow]CALCULO CONCLUIDO[/]')
     sleep(3)
 
+def calculartijolobaiano():
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
+    pass
+
+
+def calculartijolobaianinho():
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANINHOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
+    pass
+
+
+def calculartijolomineirao():
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS MINEIRÃO NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
+    pass
+
+
+def calcularbloco():
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE BLOCOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
+    pass
+
 
 def informacoes():
     msg = Panel(
@@ -195,3 +234,4 @@ def informacoes():
     )
 
     return msg
+

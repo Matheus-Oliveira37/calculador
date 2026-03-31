@@ -34,8 +34,8 @@ while escolha != 4:
                             print('[bold red]ERRO: O TAMANHO DA BARRA NÃO PODE SER ZERO[/]')
                             continue
                         tamparede = float(input('QUAL A LARGURA: '))
-                        if tamparade == 0:
-                            print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
+                        if tamparede == 0:
+                            print('[bold red]ERRO: O TAMANHO DA BARRA NÃO PODE SER ZERO[/]')
                             continue
                         sleep(1.2)
                     except (TypeError, ValueError):
@@ -132,13 +132,16 @@ while escolha != 4:
             else:
                 print('[bold red]OPÇÃO INVÁLIDA[/]')
                 sleep(1.0)
-
         elif escolha == 3:
+            print(f"[color(208)]VOCê ESCOLHEU TIJOLOS[/]")
+            print(pacotes.funcoes.escolhatijolo())
+
+        elif escolha == 4:
             print(f'[bold magenta]VOCÊ ESCOLHEU INFORMAÇÕES[/]')
             print(pacotes.funcoes.informacoes())
             sleep(3)
 
-        elif escolha == 4:
+        elif escolha == 5:
             print(f'[bold yellow]ENCERRANDO PROGRAMA[/]')
             print(f'[bold green].[/]')
             sleep(0.5)
