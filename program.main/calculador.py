@@ -4,7 +4,7 @@ from rich.panel import Panel
 import pacotes.funcoes
 
 # titulo do programa e mensagem de boas vindas
-print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 3.1[/]')
+print('[bold red]CRIADO POR MATHEUS O. AMORIM       VERSÃO 4.2[/]')
 panel = Panel("[bold white on green]        BEM VINDO AO CALCULATOR 2000         ",
               title="[bold green]CALCULATOR 2000[/]", border_style="bold green", width=50)
 print(panel)
@@ -69,8 +69,7 @@ while escolha != 5:
                         print('[bold red]ERRO: A LARGURA NÃO PODE SER ZERO[/]')
 
                     else:
-                        print(pacotes.funcoes.calcularforrom2(tambarra,
-                                                              tamparede))  # função para calcular o forro por barra
+                        print(pacotes.funcoes.calcularforrom2(tambarra, tamparede))  # função para calcular o forro por barra
                         sleep(1.2)
                         break
             elif escolha2 == 3:
@@ -83,11 +82,11 @@ while escolha != 5:
 
 
         # escolha nº2: Laje
-        elif escolha == 2:
+        elif escolha == 2: #opção de laje
             print(f'[bold cyan]VOCÊ ESCOLHEU LAJE[/]')
             print(pacotes.funcoes.escolhalaje())
             escolha2 = int(input(''))
-            if escolha2 == 1:
+            if escolha2 == 1: #opção de calcular a laje por m²
                 while True:
                     try:
                         largura = float(input('QUAL A LARGURA: '))
@@ -110,7 +109,7 @@ while escolha != 5:
                         sleep(1.2)
                         break
 
-            elif escolha2 == 2:
+            elif escolha2 == 2: #opção de calcular a quantidade de lajotas por m²
                 while True:
                     try:
                         m2 = float(input('QUAL A METRAGEM QUADRADA?: '))
@@ -133,106 +132,208 @@ while escolha != 5:
                 print('[bold red]OPÇÃO INVÁLIDA[/]')
                 sleep(1.0)
 
-        elif escolha == 3:
+
+        elif escolha == 3: #opção de tijolos/bloco
             print(f"[color(208)]VOCê ESCOLHEU TIJOLOS[/]")
             print(pacotes.funcoes.escolhatijolo())
             escolha2 = int(input(''))
-            if escolha2 == 1:
+            if escolha2 == 1: #opção de tijolo baiano
                 while True:
-                    try:
-                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
-                        if comprimento == 0:
-                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
-                            continue
-                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
-                        if altura == 0:
-                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
-                            continue
-                        sleep(1.2)
-                    except (TypeError, ValueError):
-                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                    print(pacotes.funcoes.escolhabaiano())
+                    escolha3 = int(input(''))
 
-                    except ZeroDivisionError:
-                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+                    if escolha3 == 1: #opção de calcular parede com tijolo baiano
+                            try:
+                                comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                                if comprimento == 0:
+                                    print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                                    continue
+                                altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                                if altura == 0:
+                                    print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                                    continue
+                                sleep(1.2)
+                            except (TypeError, ValueError):
+                                print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                                continue
 
-                    else:
-                        print(pacotes.funcoes.calculartijolobaiano(comprimento, altura))  # função para calcular tijolo baiano
-                        sleep(1.2)
+                            except ZeroDivisionError:
+                                print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+
+                            else:
+                                print(pacotes.funcoes.calculartijolobaiano(comprimento, altura))  # função para calcular tijolo baiano
+                                sleep(1.2)
+                                break
+
+                    elif escolha3 == 2: #opção de calcular a quantidade de tijolos baianos por m²
+                            try:
+                                m2 = float(input('QUAL A METRAGEM QUADRADA?: '))
+                                if m2 == 0:
+                                    print('[bold red]ERRO: A METRAGEM QUADRADA NÃO PODE SER ZERO[/]')
+                                    continue
+                                sleep(1.2)
+                            except (TypeError, ValueError):
+                                    print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                            else:
+                                print(pacotes.funcoes.calculartijolobaianom2(m2))  # função para calcular a quantidade de tijolos baianos por m²
+                                sleep(1.2)
+                                break
+                    elif escolha3 == 3:
+                        print('[color(208)]VOLTANDO AO MENU...[/]')
+                        sleep(0.5)
                         break
-            elif escolha2 == 2:
+                    else:
+                        print('[bold red]OPÇÃO INVÁLIDA[/]')
+                        sleep(1.0)        
+                            
+            elif escolha2 == 2: #opção de tijolo baianinho
                 while True:
-                    try:
-                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
-                        if comprimento == 0:
-                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
-                            continue
-                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
-                        if altura == 0:
-                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
-                            continue
-                        sleep(1.2)
-                    except (TypeError, ValueError):
-                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                    print(pacotes.funcoes.escolhabaianinho())
+                    escolha3 = int(input(''))
+                    if escolha3 == 1: #opção de calcular parede com tijolo baianinho
+                        try:
+                            comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                            if comprimento == 0:
+                                print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                                continue
+                            altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                            if altura == 0:
+                                print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
 
-                    except ZeroDivisionError:
-                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+                        except ZeroDivisionError:
+                            print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
 
-                    else:
-                        print(pacotes.funcoes.calculartijolobaianinho(comprimento, altura))  # função para calcular tijolo baianinho
-                        sleep(1.2)
+                        else:
+                            print(pacotes.funcoes.calculartijolobaianinho(comprimento, altura))  # função para calcular tijolo baianinho
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 2: #opção de calcular a quantidade de tijolos baianinhos por m²
+                        try:
+                            m2 = float(input('QUAL A METRAGEM QUADRADA?: '))
+                            if m2 == 0:
+                                print('[bold red]ERRO: A METRAGEM QUADRADA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                        else:
+                            print(pacotes.funcoes.calculartijolobaianinhom2(m2))  # função para calcular a quantidade de tijolos baianinhos por m²
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 3:
+                        print('[color(208)]VOLTANDO AO MENU...[/]')
+                        sleep(0.5)
                         break
-            elif escolha2 == 3:
+                    else:
+                        print('[bold red]OPÇÃO INVÁLIDA[/]')
+                        sleep(1.0)
+
+            elif escolha2 == 3: #opção de tijolo mineirão
                 while True:
-                    try:
-                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
-                        if comprimento == 0:
-                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
-                            continue
-                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
-                        if altura == 0:
-                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
-                            continue
-                        sleep(1.2)
-                    except (TypeError, ValueError):
-                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                    print(pacotes.funcoes.escolhamineirao())
+                    escolha3 = int(input(''))
+                    if escolha3 == 1: #opção de calcular parede com tijolo mineirão
+                        try:
+                            comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                            if comprimento == 0:
+                                print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                                continue
+                            altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                            if altura == 0:
+                                print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
 
-                    except ZeroDivisionError:
-                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+                        except ZeroDivisionError:
+                            print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
 
-                    else:
-                        print(pacotes.funcoes.calculartijolomineirao(comprimento, altura))  # função para calcular tijolo mineirão
-                        sleep(1.2)
+                        else:
+                            print(pacotes.funcoes.calculartijolomineirao(comprimento, altura))  # função para calcular tijolo mineirão
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 2: #opção de calcular a quantidade de tijolos mineirão por m²
+                        try:
+                            m2 = float(input('QUAL A METRAGEM QUADRADA?: '))
+                            if m2 == 0:
+                                print('[bold red]ERRO: A METRAGEM QUADRADA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                        else:
+                            print(pacotes.funcoes.calculartijolomineiraom2(m2))  # função para calcular a quantidade de tijolos mineirão por m²
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 3:
+                        print('[color(208)]VOLTANDO AO MENU...[/]')
+                        sleep(0.5)
                         break
-            elif escolha2 == 4:
+                    else:
+                        print('[bold red]OPÇÃO INVÁLIDA[/]')
+                        sleep(1.0)
+
+            elif escolha2 == 4: #opção de bloco de concreto
                 while True:
-                    try:
-                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
-                        if comprimento == 0:
-                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
-                            continue
-                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
-                        if altura == 0:
-                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
-                            continue
-                        sleep(1.2)
-                    except (TypeError, ValueError):
-                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                    print(pacotes.funcoes.escolhabloco())
+                    escolha3 = int(input(''))
+                    if escolha3 == 1: #opção de calcular parede com bloco de concreto
+                        try:
+                            comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                            if comprimento == 0:
+                                print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                                continue
+                            altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                            if altura == 0:
+                                print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
 
-                    except ZeroDivisionError:
-                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+                        except ZeroDivisionError:
+                            print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
 
-                    else:
-                        print(pacotes.funcoes.calcularbloco(comprimento, altura))  # função para calcular bloco
-                        sleep(1.2)
+                        else:
+                            print(pacotes.funcoes.calcularbloco(comprimento, altura))  # função para calcular bloco
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 2: #opção de calcular a quantidade de blocos por m²
+                        try:
+                            m2 = float(input('QUAL A METRAGEM QUADRADA?: '))
+                            if m2 == 0:
+                                print('[bold red]ERRO: A METRAGEM QUADRADA NÃO PODE SER ZERO[/]')
+                                continue
+                            sleep(1.2)
+                        except (TypeError, ValueError):
+                            print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+                        else:
+                            print(pacotes.funcoes.calcularblocom2(m2))  # função para calcular a quantidade de blocos por m²
+                            sleep(1.2)
+                            break
+                    elif escolha3 == 3:
+                        print('[color(208)]VOLTANDO AO MENU...[/]')
+                        sleep(0.5)
                         break
+                    else:
+                        print('[bold red]OPÇÃO INVÁLIDA[/]')
+                        sleep(1.0)
+
             elif escolha2 == 5:
                 print('[color(208)]VOLTANDO AO MENU...[/]')
                 sleep(0.5)
+
             else:
                 print('[bold red]OPÇÃO INVÁLIDA[/]')
                 sleep(1.0)
 
-        elif escolha == 4:
+
+        elif escolha == 4: #opção de informações sobre o programa
             print(f'[bold green]VOCÊ ESCOLHEU INFORMAÇÕES[/]')
             print(pacotes.funcoes.informacoes())
             sleep(3)

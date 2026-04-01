@@ -64,6 +64,57 @@ def escolhatijolo():
     )
     return msg
 
+def escolhabaiano():
+    """MENU DE OPÇÕES PARA O TIJOLO BAIANO, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR POR PAREDE E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
+    msg = Panel(
+        "[color(208)]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] CALCULAR TIJOLO BAIANO PARA PAREDE\n"
+        "[ 2 ] CALCULAR POR METRO QUADRADO\n"
+        "[ 3 ] VOLTAR AO MENU[/]",
+        title="[bold color(208)]TIJOLO BAIANO[/]", border_style="bold color(208)", width=50
+    )
+    return msg
+
+def escolhabaianinho():
+    """MENU DE OPÇÕES PARA O TIJOLO BAIANINHO, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR POR PAREDE E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
+    msg = Panel(
+        "[color(208)]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] CALCULAR TIJOLO BAIANINHO PARA PAREDE\n"
+        "[ 2 ] CALCULAR POR METRO QUADRADO\n"
+        "[ 3 ] VOLTAR AO MENU[/]",
+        title="[bold color(208)]TIJOLO BAIANINHO[/]", border_style="bold color(208)", width=50
+    )
+    return msg
+
+def escolhamineirao():
+    """MENU DE OPÇÕES PARA O TIJOLO MINEIRÃO, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR POR PAREDE E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
+    msg = Panel(
+        "[color(208)]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] CALCULAR TIJOLO MINEIRÃO PARA PAREDE\n"
+        "[ 2 ] CALCULAR POR METRO QUADRADO\n"
+        "[ 3 ] VOLTAR AO MENU[/]",
+        title="[bold color(208)]TIJOLO MINEIRÃO[/]", border_style="bold color(208)", width=50
+    )
+    return msg
+
+def escolhabloco():
+    """MENU DE OPÇÕES PARA O BLOCO, COM AS OPÇÕES DE CALCULAR POR M²,
+    CALCULAR POR PAREDE E VOLTAR AO MENU PRINCIPAL
+    USE O TECLADO PARA DIGITAR O NÚMERO DA OPÇÃO DESEJADA"""
+    msg = Panel(
+        "[color(208)]ESCOLHA UMA OPÇÃO [ESCREVA O NÚMERO DA OPÇÃO] \n"
+        "[ 1 ] CALCULAR BLOCO PARA PAREDE\n"
+        "[ 2 ] CALCULAR POR METRO QUADRADO\n"
+        "[ 3 ] VOLTAR AO MENU[/]",
+        title="[bold color(208)]BLOCO[/]", border_style="bold color(208)", width=50
+    )
+    return msg
 
 def calcularforrom2(barra, parede):
     """FUNÇÃO PARA CALCULAR O FORRO POR M²,
