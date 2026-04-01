@@ -13,7 +13,7 @@ sleep(1)
 
 # escolha uma opção entre forro, laje, informações ou sair do programa
 escolha = 0
-while escolha != 4:
+while escolha != 5:
     try:
 
         print(pacotes.funcoes.menu())
@@ -132,14 +132,111 @@ while escolha != 4:
             else:
                 print('[bold red]OPÇÃO INVÁLIDA[/]')
                 sleep(1.0)
+
         elif escolha == 3:
             print(f"[color(208)]VOCê ESCOLHEU TIJOLOS[/]")
             print(pacotes.funcoes.escolhatijolo())
+            escolha2 = int(input(''))
+            if escolha2 == 1:
+                while True:
+                    try:
+                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                        if comprimento == 0:
+                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                            continue
+                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                        if altura == 0:
+                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                            continue
+                        sleep(1.2)
+                    except (TypeError, ValueError):
+                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+
+                    except ZeroDivisionError:
+                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+
+                    else:
+                        print(pacotes.funcoes.calculartijolobaiano(comprimento, altura))  # função para calcular tijolo baiano
+                        sleep(1.2)
+                        break
+            elif escolha2 == 2:
+                while True:
+                    try:
+                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                        if comprimento == 0:
+                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                            continue
+                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                        if altura == 0:
+                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                            continue
+                        sleep(1.2)
+                    except (TypeError, ValueError):
+                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+
+                    except ZeroDivisionError:
+                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+
+                    else:
+                        print(pacotes.funcoes.calculartijolobaianinho(comprimento, altura))  # função para calcular tijolo baianinho
+                        sleep(1.2)
+                        break
+            elif escolha2 == 3:
+                while True:
+                    try:
+                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                        if comprimento == 0:
+                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                            continue
+                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                        if altura == 0:
+                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                            continue
+                        sleep(1.2)
+                    except (TypeError, ValueError):
+                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+
+                    except ZeroDivisionError:
+                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+
+                    else:
+                        print(pacotes.funcoes.calculartijolomineirao(comprimento, altura))  # função para calcular tijolo mineirão
+                        sleep(1.2)
+                        break
+            elif escolha2 == 4:
+                while True:
+                    try:
+                        comprimento = float(input('QUAL O COMPRIMENTO DA PAREDE: '))
+                        if comprimento == 0:
+                            print('[bold red]ERRO: O COMPRIMENTO NÃO PODE SER ZERO[/]')
+                            continue
+                        altura = float(input('QUAL A ALTURA DA PAREDE: '))
+                        if altura == 0:
+                            print('[bold red]ERRO: A ALTURA NÃO PODE SER ZERO[/]')
+                            continue
+                        sleep(1.2)
+                    except (TypeError, ValueError):
+                        print('[bold red]ERRO: ENTRADA INVÁLIDA. POR FAVOR, INSIRA NÚMEROS VÁLIDOS.[/]')
+
+                    except ZeroDivisionError:
+                        print('[bold red]ERRO: O COMPRIMENTO E A ALTURA NÃO PODEM SER ZERO[/]')
+
+                    else:
+                        print(pacotes.funcoes.calcularbloco(comprimento, altura))  # função para calcular bloco
+                        sleep(1.2)
+                        break
+            elif escolha2 == 5:
+                print('[color(208)]VOLTANDO AO MENU...[/]')
+                sleep(0.5)
+            else:
+                print('[bold red]OPÇÃO INVÁLIDA[/]')
+                sleep(1.0)
 
         elif escolha == 4:
-            print(f'[bold magenta]VOCÊ ESCOLHEU INFORMAÇÕES[/]')
+            print(f'[bold green]VOCÊ ESCOLHEU INFORMAÇÕES[/]')
             print(pacotes.funcoes.informacoes())
             sleep(3)
+            
 
         elif escolha == 5:
             print(f'[bold yellow]ENCERRANDO PROGRAMA[/]')
@@ -149,12 +246,14 @@ while escolha != 4:
             sleep(0.5)
             print(f'[bold red].[/]')
             sleep(0.5)
-            print(f'[bold red]ENCERRADO COM SUCESSO.[/]')
+            print(f'[bold bright_red italic]ENCERRADO COM SUCESSO.[/]')
             sleep(2)
+            break
 
         else:
             print(f'[bold red]OPÇÃO INVÁLIDA[/]')
             sleep(1.5)
+
     except ValueError:
         print('[bold red]ERRO: DIGITE UM NÚMERO VÁLIDO[/]')
         sleep(1.5)

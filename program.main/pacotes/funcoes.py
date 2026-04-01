@@ -199,29 +199,93 @@ def calcularlajelajotas(m2):
     print(f'[bold yellow]CALCULO CONCLUIDO[/]')
     sleep(3)
 
-def calculartijolobaiano():
+def calculartijolobaiano(comprimento, altura):
     """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
     RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
-    pass
+    total_comprimento = comprimento / 0.24
+    total_altura = altura / 0.14
+    total = math.ceil(total_comprimento) * math.ceil(total_altura)
+    sleep(1.2)
+    print(f'SERIAM [green]{total}[/] TIJOLOS BAIANOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
+def calculartijolobaianom2(m2):
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO A METRAGEM QUADRADA COMO PARÂMETRO"""
+    total = m2 * 25
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(total)}[/] TIJOLOS BAIANOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
-def calculartijolobaianinho():
+def calculartijolobaianinho(comprimento, altura):
     """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANINHOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
     RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
-    pass
+    total_comprimento = comprimento / 0.19
+    total_altura = altura / 0.19
+    total = math.ceil(total_comprimento) * math.ceil(total_altura)
+    sleep(1.2)
+    print(f'SERIAM [green]{total}[/] TIJOLOS BAIANINHOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
+def calculartijolobaianinhom2(m2):
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS BAIANINHOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO A METRAGEM QUADRADA COMO PARÂMETRO"""
+    total = m2 * 25
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(total)}[/] TIJOLOS BAIANINHOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
-def calculartijolomineirao():
+def calculartijolomineirao(comprimento, altura):
     """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS MINEIRÃO NECESSÁRIOS PARA COBRIR UMA PAREDE,
     RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
-    pass
+    total_comprimento = comprimento / 0.29
+    total_altura = altura / 0.19
+    total = math.ceil(total_comprimento) * math.ceil(total_altura)
+    sleep(1.2)
+    print(f'SERIAM [green]{total}[/] TIJOLOS MINEIRÃO NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
+def calculartijolomineiraom2(m2):
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE TIJOLOS MINEIRÃO NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO A METRAGEM QUADRADA COMO PARÂMETRO"""
+    total = m2 * 20
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(total)}[/] TIJOLOS MINEIRÃO NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
-def calcularbloco():
+def calcularbloco(comprimento, altura):
     """FUNÇÃO PARA CALCULAR A QUANTIDADE DE BLOCOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
     RECEBENDO O COMPRIMENTO E ALTURA COMO PARÂMETRO"""
-    pass
+    total_comprimento = comprimento / 0.39
+    total_altura = altura / 0.19
+    total = math.ceil(total_comprimento) * math.ceil(total_altura)
+    sleep(1.2)
+    print(f'SERIAM [green]{total}[/] BLOCOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
+def calcularblocom2(m2):
+    """FUNÇÃO PARA CALCULAR A QUANTIDADE DE BLOCOS NECESSÁRIOS PARA COBRIR UMA PAREDE,
+    RECEBENDO A METRAGEM QUADRADA COMO PARÂMETRO"""
+    total = m2 * 14
+    sleep(1.2)
+    print(f'SERIAM [green]{math.ceil(total)}[/] BLOCOS NECESSÁRIOS PARA COBRIR A PAREDE')
+    sleep(1.2)
+    print(f'[bold yellow]CALCULO CONCLUIDO[/]')
+    sleep(3)
 
 def informacoes():
     msg = Panel(
@@ -229,9 +293,8 @@ def informacoes():
         "ESTE PROGRAMA FOI DESENVOLVIDO PARA AUXILIAR NA HORA DE CALCULAR FORROS E LAJES, \n"
         "OFERECENDO OPÇÕES DE CÁLCULO POR M² OU POR BARRA, ALÉM DE INFORMAÇÕES SOBRE A QUANTIDADE DE LAJOTAS NECESSÁRIAS. \n"
         "O PROGRAMA É FÁCIL DE USAR E FOI PROJETADO PARA SER ACESSÍVEL A TODOS, INDEPENDENTEMENTE DO NÍVEL DE EXPERIÊNCIA EM CONSTRUÇÃO. \n"
+        "USE O PONTO '.' AO INVÉS DA VÍRGULA PARA DIGITAR NÚMEROS QUEBRADOS. \n"
         "ESPERO QUE ESTE PROGRAMA SEJA ÚTIL PARA VOCÊS![/]",
-        title="[bold white on green]INFORMAÇÕES[/]", border_style="bold green", width=70
-    )
-
+        title="[bold white on green]INFORMAÇÕES[/]", border_style="bold green", width=70)
     return msg
 
