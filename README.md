@@ -1,6 +1,7 @@
 # calculador
 Programa que calcula forros, lajes e tijolos automaticamente, destinado à depósitos de material de construção. 
 Com opções de calcular tanto por metro linear quanto por m², com opção tmabém de calcular roda forro e meia cana.
+
 Imagens do programa:
 --------------------
 <img width="412" height="198" alt="image" src="https://github.com/user-attachments/assets/36ede565-be60-48bd-b9f7-36213d7b1a20" />
